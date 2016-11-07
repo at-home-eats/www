@@ -31,7 +31,7 @@
 
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+        <header class="mdl-layout__header portfolio-header">
             <div class="mdl-layout__header-row portfolio-logo-row">
                 <span class="mdl-layout__title">
                     <div class="portfolio-logo"></div>
@@ -57,37 +57,73 @@
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-grid portfolio-max-width">
-
                 <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                     <div class="mdl-card__title">
                         <h2 class="mdl-card__title-text">About</h2>
                     </div>
-                    <div class="mdl-card__media">
-                        <img class="article-image" src=" images/about-header.jpg" border="0" alt="">
+                    <div class="mdl-cell mdl-cell--8-col">
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="sample1">
+                                <label class="mdl-textfield__label" for="sample1">Enter ingredient. . .</label>
+                            </div>
+                        </form>
                     </div>
-
                     <div class="mdl-grid portfolio-copy">
-                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
-                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
-                            <p>
-                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.
-                            </p>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <div class="mdl-card__title">
+                                <h3 class="mdl-card__title-text">Ingredients</h3>
+                            </div>
                         </div>
-
-
-
-
-                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Irure mollit est sit labore</h3>
-
-                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
-                            <p>
-                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.
-                            </p>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <div class="mdl-card__title">
+                                <h3 class="mdl-card__title-text">Restrictions</h3>
+                            </div>
+                            <ul class="demo-list-control mdl-list">
+                                <li class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        Vegan
+                                    </span>
+                                    <span class="mdl-list__item-secondary-action">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vegan-checkbox">
+                                            <input type="checkbox" id="vegan-checkbox" class="mdl-checkbox__input"/>
+                                        </label>
+                                    </span>
+                                </li>
+                                <li class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        Gluten
+                                    </span>
+                                    <span class="mdl-list__item-secondary-action">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gluten-checkbox">
+                                            <input type="checkbox" id="gluten-checkbox" class="mdl-checkbox__input"/>
+                                        </label>
+                                    </span>
+                                </li>
+                                <li class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        Shellfish
+                                    </span>
+                                    <span class="mdl-list__item-secondary-action">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="shellfish-checkbox">
+                                            <input type="checkbox" id="shellfish-checkbox" class="mdl-checkbox__input"/>
+                                        </label>
+                                    </span>
+                                </li>
+                                <li class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        Vegetarian
+                                    </span>
+                                    <span class="mdl-list__item-secondary-action">
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vegetarian-checkbox">
+                                            <input type="checkbox" id="vegetarian-checkbox" class="mdl-checkbox__input"/>
+                                        </label>
+                                    </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
