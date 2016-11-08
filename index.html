@@ -151,9 +151,25 @@
             ingredientNode = document.createElement("LI");
             ingredientText = document.createTextNode(ingredient);
             ingredientNode.appendChild(ingredientText);
-
-            document.getElementById("ingredientsList").appendChild(ingredientNode);
+			if(!inList(ingredient)){
+				document.getElementById("ingredientsList").appendChild(ingredientNode);
+			}
         }
+		function inList(ingredient){
+			var inList = false;
+			if(ingredient==""){
+				inList = true;
+			}
+			else{
+				var list = document.getElementById("ingredientsList");
+				for(i = 0; i < list.children.length; i++){
+					if(ingredient == list.children[i].innerText){
+						inList = true;
+					}
+				}
+			}			
+			return inList;
+		}
     </script>
 </body>
 
