@@ -148,11 +148,10 @@
             appendToIngredientList(ingredient);
         }
         function appendToIngredientList(ingredient) {
-            ingredientNode = document.createElement("LI");
-            ingredientText = document.createTextNode(ingredient);
-            ingredientNode.appendChild(ingredientText);
+            ingredientNode = createListNode(ingredient);            
 			if(!inList(ingredient)){
 				document.getElementById("ingredientsList").appendChild(ingredientNode);
+				document.getElementById("ingredientInput").value = "";
 			}
         }
 		function inList(ingredient){
@@ -161,14 +160,42 @@
 				inList = true;
 			}
 			else{
-				var list = document.getElementById("ingredientsList");
+				var list = document.getElementById("ingredientsList");				
 				for(i = 0; i < list.children.length; i++){
-					if(ingredient == list.children[i].innerText){
+					if(ingredient == list.children[i].children[0].textContent){
 						inList = true;
 					}
 				}
 			}			
 			return inList;
+		}
+		function createListNode(ingredient){
+			ingredientNode = document.createElement("LI");
+			ingredientNode.setAttribute("class", "mdl-list__item ingredients");			
+            firstSpan = document.createElement("SPAN");
+			firstSpan.setAttribute("class","mdl-list__item-primary-content");
+			textSpan = document.createElement("SPAN");
+			ingredientText = document.createTextNode(ingredient);
+			textSpan.appendChild(ingredientText);
+			firstSpan.appendChild(textSpan);
+			ingredientNode.appendChild(firstSpan);
+			secondSpan = document.createElement("SPAN");
+			secondSpan.setAttribute("class","mdl-list__item-secondary-content");
+			removeAction = document.createElement("BUTTON");
+			removeAction.setAttribute("class","mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored");
+			removeAction.setAttribute("onclick","removeItem(this.parentNode.parentNode)");
+			setIcon = document.createElement("I");
+			setIcon.setAttribute("class","material-icons");
+			iconToUse = document.createTextNode("remove");
+			setIcon.appendChild(iconToUse);
+			removeAction.appendChild(setIcon);
+			secondSpan.appendChild(removeAction);
+			ingredientNode.appendChild(secondSpan);			
+			return ingredientNode;		
+		}
+		function removeItem(node){
+			var list = document.getElementById("ingredientsList");
+			list.removeChild(node);
 		}
     </script>
 </body>
