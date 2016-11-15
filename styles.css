@@ -18,6 +18,9 @@
 
 .center_buttons {
   text-align: center;
+}
+
+.buttons {
   background-color: rgba(0, 0, 0, 0.08);
 }
 

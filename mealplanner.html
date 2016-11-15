@@ -22,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A portfolio template that uses Material Design Lite.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>MDL-Static Website</title>
+    <title>@HomeEats</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.grey-pink.min.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -30,6 +30,40 @@
 </head>
 
 <body>
+    <dialog id="create-dialog" class="mdl-dialog">
+        <h4 class="mdl-dialog__title">Create Account</h4>
+        <div class="mdl-dialog__content">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="emailInput">
+                <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield"> 
+                <input class="mdl-textfield__input" type="text" id="passwordInput">
+                <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
+            </div>
+        </div>
+        <div class="center_buttons" style="text-align:center">
+            <button id="complete-create" type="button" class="mdl-button close">Submit</button>
+            <button id="close-create" type="button" class="mdl-button close">Cancel</button>
+        </div>
+    </dialog>
+    <dialog id="signin-dialog" class="mdl-dialog">
+        <h4 class="mdl-dialog__title">Login</h4>
+        <div class="mdl-dialog__content">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="emailInput">
+                <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield"> 
+                <input class="mdl-textfield__input" type="text" id="passwordInput">
+                <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
+            </div>
+        </div>
+        <div class="center_buttons">
+            <button id="complete-signin" type="button" class="mdl-button close">Submit</button>
+            <button id="close-signin" type="button" class="mdl-button close">Forgot?</button>
+        </div>
+    </dialog>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
             <div class="mdl-layout__header-row portfolio-logo-row">
@@ -41,18 +75,20 @@
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
                 <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
                     <a class="mdl-navigation__link" href="index.html">Home</a>
-                    <a class="mdl-navigation__link  is-active" href="mealplanner.html">Meal Planner</a>
+                    <a class="mdl-navigation__link is-active" href="mealplanner.html">Meal Planner</a>
                     <a class="mdl-navigation__link" href="about.html">About Us</a>
-                    <a class="mdl-navigation__link" href="contact.html">Create Account</a>
+                    <a class="mdl-navigation__link" href="#" onclick="dialogCreate()" id="create">Create Account</a>
+                    <a class="mdl-navigation__link" href="#" onclick="dialogInit()" id="signin">Sign in</a>
                 </nav>
             </div>
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a class="mdl-navigation__link is-active" href="index.html">Home</a>
-                <a class="mdl-navigation__link" href="mealplanner.html">Meal Planner</a>
+                <a class="mdl-navigation__link" href="index.html">Home</a>
+                <a class="mdl-navigation__link is-active" href="mealplanner.html">Meal Planner</a>
                 <a class="mdl-navigation__link" href="about.html">About Us</a>
-                <a class="mdl-navigation__link" href="contact.html">Create Account</a>
+                <a class="mdl-navigation__link" href="#" onclick="dialogCreate()" id="create">Create Account</a>
+                <a class="mdl-navigation__link" href="#" onclick="dialogInit()" id="signin">Sign in</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -159,7 +195,7 @@
             </div>
             <footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
-                    <div class="mdl-logo">Simple portfolio website</div>
+                    <div class="mdl-logo">@HomeEats</div>
                 </div>
                 <div class="mdl-mini-footer__right-section">
                     <ul class="mdl-mini-footer__link-list">
@@ -172,6 +208,28 @@
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+    <script type="text/javascript">
+        function dialogCreate() {
+            console.log("WTF");
+            var dialogButton = document.getElementById('create');
+            var dialog = document.getElementById('create-dialog');
+            console.log(dialog);
+            dialog.showModal();
+            document.getElementById("close-create").addEventListener('click', function() {
+                dialog.close();
+            });
+        }
+        function dialogInit() {
+            console.log("WTF");
+            var dialogButton = document.getElementById('signin');
+            var dialog = document.getElementById('signin-dialog');
+            console.log(dialog);
+            dialog.showModal();
+            document.getElementById("close-signin").addEventListener('click', function() {
+                dialog.close();
+            });
+        }
+    </script>
 </body>
 
 </html>
