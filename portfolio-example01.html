@@ -43,7 +43,8 @@
                     <a class="mdl-navigation__link is-active" href="index.html">Home</a>
                     <a class="mdl-navigation__link" href="mealplanner.html">Meal Planner</a>
                     <a class="mdl-navigation__link" href="about.html">About Us</a>
-                    <a class="mdl-navigation__link" href="contact.html">Create Account</a>
+                    <a class="mdl-navigation__link" href="#" onclick="dialogInit()" id="signin">Create Account</a>
+                    <a class="mdl-navigation__link" href="#" onclick="dialogInit()" id="signin">Sign in</a>
                 </nav>
             </div>
         </header>
@@ -52,7 +53,8 @@
                 <a class="mdl-navigation__link is-active" href="index.html">Home</a>
                 <a class="mdl-navigation__link" href="mealplanner.html">Meal Planner</a>
                 <a class="mdl-navigation__link" href="about.html">About Us</a>
-                <a class="mdl-navigation__link" href="contact.html">Create Account</a>
+                <a class="mdl-navigation__link" href="#" onclick="dialogInit()" id="signin">Create Account</a>
+                <a class="mdl-navigation__link" href="#" onclick="dialogInit()" id="signin">Sign in</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -116,6 +118,18 @@
         </main>
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <script type="text/javascript">
+        function dialogInit() {
+            console.log("WTF");
+            var dialogButton = document.getElementById('signin');
+            var dialog = document.getElementById('signin-dialog');
+            console.log(dialog);
+            dialog.showModal();
+            document.getElementById("close-signin").addEventListener('click', function() {
+                dialog.close();
+            });
+        }
+    </script>
 </body>
 
 </html>
