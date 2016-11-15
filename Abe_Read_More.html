@@ -26,46 +26,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.grey-pink.min.css" />
     <link rel="stylesheet" href="styles.css" />
-
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-    <dialog id="create-dialog" class="mdl-dialog">
-        <h4 class="mdl-dialog__title">Create Account</h4>
-        <div class="mdl-dialog__content">
-            <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="emailInput">
-                <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="text" id="passwordInput">
-                <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
-            </div>
-        </div>
-        <div class="center_buttons" style="text-align:center">
-            <button id="complete-create" type="button" class="mdl-button close">Submit</button>
-            <button id="close-create" type="button" class="mdl-button close">Cancel</button>
-        </div>
-    </dialog>
-    <dialog id="signin-dialog" class="mdl-dialog">
-        <h4 class="mdl-dialog__title">Login</h4>
-        <div class="mdl-dialog__content">
-            <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="emailInput">
-                <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="text" id="passwordInput">
-                <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
-            </div>
-        </div>
-        <div class="center_buttons">
-            <button id="complete-signin" type="button" class="mdl-button close">Submit</button>
-            <button id="close-signin" type="button" class="mdl-button close">Forgot?</button>
-        </div>
-    </dialog>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
             <div class="mdl-layout__header-row portfolio-logo-row">
@@ -85,7 +49,7 @@
             </div>
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <nav class="mdl-navigation mdl-typography--body-1- force-preferred-font">
                 <a class="mdl-navigation__link" href="index.html">Home</a>
                 <a class="mdl-navigation__link" href="mealplanner.html">Meal Planner</a>
                 <a class="mdl-navigation__link is-active" href="about.html">About Us</a>
@@ -95,46 +59,44 @@
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-grid portfolio-max-width">
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image" src=" images/Abe.jpg" border="0" alt="">
-                    </div>
+                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                     <div class="mdl-card__title">
                         <h2 class="mdl-card__title-text">Abram Beazel</h2>
                     </div>
-                    <div class="mdl-card__supporting-text">
-                        This is all about Abe.
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="Abe_Read_More.html">Read more</a>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work07.jpg" border="0" alt="">
+                        <img class="article-image" src=" images/portfolio-example-01.jpg" border="0" alt="">
                     </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Erick Diaz</h2>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        This is all about Erick.
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="Erick_Read_More.html">Read more</a>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work02.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Joseph Myrer</h2>
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        This is all about Joseph.
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="Joseph_Read_More.html">Read more</a>
+                    <div class="mdl-grid portfolio-copy">
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+                        <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                            <p>
+                                Text1
+                            </p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <img class="article-image" src=" images/portfolio-example-02.jpg" border="0" alt="">
+                        </div>
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Initial Ideas</h3>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <img class="article-image" src=" images/portfolio-example-03.jpg" border="0" alt="">
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding ">
+                            <p>
+                                Text2
+                            </p>
+                        </div>
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Final Concept</h3>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <img class="article-image" src=" images/portfolio-example-05.jpg" border="0" alt="">
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <img class="article-image" src=" images/portfolio-example-06.jpg" border="0" alt="">
+                        </div>
+                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                            <p>
+                                Text3
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
