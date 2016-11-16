@@ -99,10 +99,10 @@
                     </div>
                     <div class="mdl-cell mdl-cell--8-col">
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" id="ingredientInput">
-                            <label class="mdl-textfield__label" for="sample1">Enter ingredient. . .</label>
+                            <input onclick="inputInit()" class="mdl-textfield__input" type="text" id="ingredientInput">
+                            <label class="mdl-textfield__label" for="ingredientInput">Enter ingredient. . .</label>
                         </div>
-                        <button onclick="addIngredient()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                        <button id="ingredientAdd" onclick="addIngredient()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
                             <i class="material-icons">add</i>
                         </button>
                     </div>
@@ -162,6 +162,7 @@
                             </ul>
                         </div>
                     </div>
+                    <button onclick="gatherIngredients()" id="ingredientSubmit" type="button" class="mdl-button close">Submit</button>
                 </div>
             </div>
             <footer class="mdl-mini-footer">
@@ -178,6 +179,7 @@
         </main>
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
         function addIngredient() {
             var ingredient = document.getElementById("ingredientInput").value;
@@ -251,6 +253,30 @@
             dialog.showModal();
             document.getElementById("close-signin").addEventListener('click', function() {
                 dialog.close();
+            });
+        }
+        function gatherIngredients() {
+            var ingredientsTags = document.getElementById("ingredientsList").getElementsByTagName("li");
+            var ingredients = [];
+            for (var i = ingredientsTags.length - 1; i >= 0; i--) {
+                ingredients.push(ingredientsTags[i].children[0].textContent);
+            }
+            console.log(ingredients);
+            sendIngredients(ingredients);
+        }
+        function sendIngredients(ingredients) {
+            $.get('https://api.edamam.com/search', {app_id: '223b8c0e', app_key: "d4b82fd96b209abba79648a260d84375",  q: ingredients.toString()}, function(data) {
+                console.log(data);
+            })
+            //"https://api.edamam.com/search?q=chicken&app_id=223b8c0e&app_key=d4b82fd96b209abba79648a260d84375&from=0&to=3"
+        }
+        function inputInit() {
+            document.getElementById("ingredientInput")
+            .addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.keyCode == 13) {
+                    document.getElementById("ingredientAdd").click();
+                }
             });
         }
     </script>
