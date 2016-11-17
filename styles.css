@@ -1,10 +1,47 @@
+
+.mdl-card {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    min-height: 200px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    border: 1px solid;
+    box-shadow: 0 1px 1px;
+}
+
+.mdl-card__title {
+    align-items: center;
+    text-align: center;
+    color: #000;
+    display: flex;
+    line-height: normal;
+    padding-left: 10px;
+    padding-right: 10px;
+    perspective-origin: 165px 56px;
+    transform-origin: 165px 56px;
+    box-sizing: border-box;
+}
+
 .portfolio-header {
   position: relative;
+    background-color: #eee;
   /*background-image: url(images/header-bg.jpg);*/
 }
 
 .portfolio-header .mdl-layout__header-row {
   padding: 0;
+    border: 1px solid;
+    box-shadow: 0 1px 3px;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -40,7 +77,7 @@
   background: url(images/logo.png) 50% no-repeat;
   background-size: cover;
   height: 45px;
-  width: 400px;
+  width: 450px;
   margin: auto auto 10px;
 }
 
@@ -66,7 +103,7 @@
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  line-height: 42px;
+  line-height: 26px;
 }
 
 .portfolio-header .mdl-layout__drawer-button {
@@ -81,17 +118,26 @@
 .portfolio-navigation-row .is-active:after {
   content: "";
   width: 70%;
-  height: 2px;
+  height: 3px;
   display: block;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgb(255,64,129);
+  background-color: rgb(64, 255, 195);
   left: 15%;
+}
+
+.mdl-button--fab.mdl-button--colored {
+    background-color: rgb(64, 255, 195);
+    color: rgb(255,255,255);
 }
 
 .portfolio-card .mdl-card__title {
   padding-bottom: 0;
+}
+
+.mdl-grid {
+    padding: 0px;
 }
 
 .portfolio-blog-card-full-bg {
@@ -128,8 +174,8 @@ img.article-image {
 
 .portfolio-copy {
   max-width: 800px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .no-padding {
