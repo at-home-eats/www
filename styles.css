@@ -222,6 +222,12 @@ img.article-image {
   margin: auto;
 }
 
+#recipe-dialog {
+  height: 400px;
+  width: 700px;
+  overflow: auto;
+}
+
 footer {
   background-image: url(images/footer-background.png);
   background-size: cover;
