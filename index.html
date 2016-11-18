@@ -29,21 +29,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-<body onload="checkSession()" style="background-image: url('images/back2.jpg');">
+<body onload="renderUser()" style="background-image: url('images/back2.jpg');">
     <dialog id="create-dialog" class="mdl-dialog">
         <h4 class="mdl-dialog__title">Create Account</h4>
         <div class="mdl-dialog__content">
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="emailInput">
+                <input class="mdl-textfield__input" type="text" id="createEmail">
                 <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
             </div>
             <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="password" id="passwordInput">
+                <input class="mdl-textfield__input" type="password" id="createPassword">
                 <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
             </div>
         </div>
         <div class="center_buttons" style="text-align:center">
-            <button id="complete-create" type="button" onclick="saveUser();" class="mdl-button close">Submit</button>
+            <button id="complete-create" type="button" class="mdl-button close">Submit</button>
             <button id="close-create" type="button" class="mdl-button close">Cancel</button>
         </div>
     </dialog>
@@ -51,11 +51,11 @@
         <h4 class="mdl-dialog__title">Login</h4>
         <div class="mdl-dialog__content">
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="emailInput">
+                <input class="mdl-textfield__input" type="text" id="signinEmail">
                 <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
             </div>
             <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="password" id="passwordInput">
+                <input class="mdl-textfield__input" type="password" id="signinPassword">
                 <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
             </div>
         </div>
@@ -179,7 +179,7 @@
                             </ul>
                         </div>
                     </div>
-                    <button onclick="gatherIngredients()" id="ingredientSubmit" type="button" class="mdl-button close">Submit</button>
+                    <button id="ingredientSubmit" type="button" class="mdl-button close">Submit</button>
                 </div>
             </div>
             <footer class="mdl-mini-footer">
@@ -197,16 +197,29 @@
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript">   
-        function saveUser() {
-            var email = document.getElementById("emailInput").value;
-            var pass = document.getElementById("passwordInput").value;
+    <script type="text/javascript">
+        document.getElementById('ingredientSubmit').addEventListener('click', function() {
+            gatherIngredients();
+        });
+        function createUser() {
+            sessionStorage.clear();
+            var email = document.getElementById("createEmail").value;
+            var pass = document.getElementById("createPassword").value;
             sessionStorage.setItem("email", email);
             sessionStorage.setItem("pass", pass);
-            //alert(sessionStorage.getItem("email"));
-            //alert(sessionStorage.getItem("pass"));
+            renderUser();
         }
-        function checkSession() {
+
+        function signinUser() {
+            sessionStorage.clear();
+            var email = document.getElementById("signinEmail").value;
+            var pass = document.getElementById("signinPassword").value;
+            sessionStorage.setItem("email", email);
+            sessionStorage.setItem("pass", pass);
+            renderUser();
+        }
+
+        function renderUser() {
             if(sessionStorage.getItem("email") && sessionStorage.getItem("pass")) {
                 var user = sessionStorage.getItem("email");
                 var innerDiv = document.createElement('DIV');
@@ -273,27 +286,38 @@
 			ingredientNode.appendChild(secondSpan);			
 			return ingredientNode;		
 		}
+
 		function removeItem(node){
 			var list = document.getElementById("ingredientsList");
 			list.removeChild(node);
 		}
+
         function dialogCreate() {
-            console.log("WTF");
             var dialogButton = document.getElementById('create');
             var dialog = document.getElementById('create-dialog');
-            console.log(dialog);
+
             dialog.showModal();
             document.getElementById("close-create").addEventListener('click', function() {
                 dialog.close();
             });
+
+            document.getElementById("complete-create").addEventListener('click', function() {
+                createUser();
+                dialog.close();
+            });
         }
+
         function dialogInit() {
-            console.log("WTF");
             var dialogButton = document.getElementById('signin');
             var dialog = document.getElementById('signin-dialog');
-            console.log(dialog);
+
             dialog.showModal();
             document.getElementById("close-signin").addEventListener('click', function() {
+                dialog.close();
+            });
+
+            document.getElementById("complete-signin").addEventListener('click', function() {
+                signinUser();
                 dialog.close();
             });
         }
@@ -307,6 +331,7 @@
                 ingredients.push(ingredientsTags[i].children[0].textContent);
             }
             if(ingredients.length === 0) {
+                alert("Enter ingredients");
                 return;
             }
 
@@ -388,6 +413,7 @@
         function renderRecipe() {
             var dialog = document.getElementById("recipe-dialog");
             dialog.showModal();
+
             document.getElementById("recipe-close").addEventListener("click", function() {
                 dialog.close();
             });
@@ -396,6 +422,7 @@
             document.getElementById("ingredientInput")
             .addEventListener("keyup", function(event) {
                 event.preventDefault();
+
                 if (event.keyCode == 13) {
                     document.getElementById("ingredientAdd").click();
                 }
