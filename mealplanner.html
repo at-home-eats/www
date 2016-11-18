@@ -1,19 +1,6 @@
 <!doctype html>
 <!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
+  
 -->
 <html lang="en">
 
@@ -34,11 +21,11 @@
         <h4 class="mdl-dialog__title">Create Account</h4>
         <div class="mdl-dialog__content">
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="emailInput">
+                <input class="mdl-textfield__input" type="text" id="createEmail">
                 <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
             </div>
             <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="text" id="passwordInput">
+                <input class="mdl-textfield__input" type="password" id="createPassword">
                 <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
             </div>
         </div>
@@ -51,11 +38,11 @@
         <h4 class="mdl-dialog__title">Login</h4>
         <div class="mdl-dialog__content">
             <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="emailInput">
+                <input class="mdl-textfield__input" type="text" id="signinEmail">
                 <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
             </div>
             <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="text" id="passwordInput">
+                <input class="mdl-textfield__input" type="password" id="signinPassword">
                 <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
             </div>
         </div>
@@ -69,6 +56,11 @@
             <div class="mdl-layout__header-row portfolio-logo-row">
                 <span class="mdl-layout__title">
                     <div class="portfolio-logo"></div>
+                </span>
+                <span>
+                    <div id="userDiv">
+
+                    </div>
                 </span>
             </div>
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
@@ -127,8 +119,10 @@
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+    <script src="./index.js"></script>
     <script type="text/javascript">
         window.onload = function (){
+            renderUser();
 			dragula([document.getElementById('1left'), document.getElementById('1right')]);
 			dragula([document.getElementById('1left'), document.getElementById('2right')]);
 			dragula([document.getElementById('1left'), document.getElementById('3right')]);
@@ -136,26 +130,6 @@
 			dragula([document.getElementById('1right'), document.getElementById('3right')]);
 			dragula([document.getElementById('2right'), document.getElementById('3right')]);
 		};
-        function dialogCreate() {
-            console.log("WTF");
-            var dialogButton = document.getElementById('create');
-            var dialog = document.getElementById('create-dialog');
-            console.log(dialog);
-            dialog.showModal();
-            document.getElementById("close-create").addEventListener('click', function() {
-                dialog.close();
-            });
-        }
-        function dialogInit() {
-            console.log("WTF");
-            var dialogButton = document.getElementById('signin');
-            var dialog = document.getElementById('signin-dialog');
-            console.log(dialog);
-            dialog.showModal();
-            document.getElementById("close-signin").addEventListener('click', function() {
-                dialog.close();
-            });
-        }
     </script>
 </body>
 

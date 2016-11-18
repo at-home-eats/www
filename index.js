@@ -1,6 +1,8 @@
-document.getElementById('ingredientSubmit').addEventListener('click', function() {
-    gatherIngredients();
-});
+if (document.getElementById('ingredientSubmit')) {
+    document.getElementById('ingredientSubmit').addEventListener('click', function() {
+        gatherIngredients();
+    });
+}
 function createUser() {
     sessionStorage.clear();
     var email = document.getElementById("createEmail").value;
