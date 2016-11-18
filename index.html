@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A portfolio template that uses Material Design Lite.">
+    <meta name="description" content="Find a recipe!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>@HomeEats</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-<body style="background-image: url('images/back2.jpg');">
+<body onload="checkSession()" style="background-image: url('images/back2.jpg');">
     <dialog id="create-dialog" class="mdl-dialog">
         <h4 class="mdl-dialog__title">Create Account</h4>
         <div class="mdl-dialog__content">
@@ -82,6 +82,11 @@
             <div class="mdl-layout__header-row portfolio-logo-row">
                 <span class="mdl-layout__title">
                     <div class="portfolio-logo"></div>
+                </span>
+                <span>
+                    <div id="userDiv">
+
+                    </div>
                 </span>
             </div>
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
@@ -192,15 +197,29 @@
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript">
-        
+    <script type="text/javascript">   
         function saveUser() {
             var email = document.getElementById("emailInput").value;
             var pass = document.getElementById("passwordInput").value;
             sessionStorage.setItem("email", email);
             sessionStorage.setItem("pass", pass);
-            alert(sessionStorage.getItem("email"));
-            alert(sessionStorage.getItem("pass"));
+            //alert(sessionStorage.getItem("email"));
+            //alert(sessionStorage.getItem("pass"));
+        }
+        function checkSession() {
+            if(sessionStorage.getItem("email") && sessionStorage.getItem("pass")) {
+                var user = sessionStorage.getItem("email");
+                var innerDiv = document.createElement('DIV');
+                innerDiv.className = "material-icons";
+                var innerDivText = document.createTextNode("account_box");
+                innerDiv.appendChild(innerDivText);
+                var userNameElement = document.createElement("P");
+                var userName = document.createTextNode(user);
+                userNameElement.appendChild(userName);
+                var userDiv = document.getElementById("userDiv");
+                userDiv.appendChild(innerDiv);
+                userDiv.appendChild(userNameElement);
+            }
         }
         
         
@@ -287,8 +306,10 @@
             for (var i = ingredientsTags.length - 1; i >= 0; i--) {
                 ingredients.push(ingredientsTags[i].children[0].textContent);
             }
+            if(ingredients.length === 0) {
+                return;
+            }
 
-            console.log(ingredients);
             sendIngredients(ingredients);
         }
 
