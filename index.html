@@ -38,7 +38,7 @@
                 <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
             </div>
             <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="text" id="passwordInput">
+                <input class="mdl-textfield__input" type="password" id="passwordInput">
                 <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <label class="mdl-textfield__label" for="emailInput">Email. . . </label>
             </div>
             <div class="mdl-textfield mdl-js-textfield"> 
-                <input class="mdl-textfield__input" type="text" id="passwordInput">
+                <input class="mdl-textfield__input" type="password" id="passwordInput">
                 <label class="mdl-textfield__label" for="passwordInput">Password . . .</label>
             </div>
         </div>
@@ -65,10 +65,16 @@
         </div>
     </dialog>
     <dialog id="recipe-dialog" class="mdl-dialog">
-        <h4 class="mdl-dialog__title">Recipes</h4>
+        <div id="dialog-title">
+            <h4 class="mdl-dialog__title">Recipes</h4>
+        </div>
         <div class="mdl-dialog__content">
             <ul class="mdl-list" id="recipeList">
             </ul>
+        </div>
+        <div class="center_buttons" style="text-align:center">
+            <button id="recipe-save" type="button" class="mdl-button close">Save</button>
+            <button id="recipe-close" type="button" class="mdl-button close">Close</button>
         </div>
     </dialog>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -137,21 +143,21 @@
                                 </li>
                                 <li class="mdl-list__item">
                                     <span class="mdl-list__item-primary-content">
-                                        Gluten
+                                        Peanut
                                     </span>
                                     <span class="mdl-list__item-secondary-action">
-                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gluten-checkbox">
-                                            <input type="checkbox" id="gluten-checkbox" class="mdl-checkbox__input"/>
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="peanut-checkbox">
+                                            <input type="checkbox" id="peanut-checkbox" class="mdl-checkbox__input"/>
                                         </label>
                                     </span>
                                 </li>
                                 <li class="mdl-list__item">
                                     <span class="mdl-list__item-primary-content">
-                                        Shellfish
+                                        Tree Nut
                                     </span>
                                     <span class="mdl-list__item-secondary-action">
-                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="shellfish-checkbox">
-                                            <input type="checkbox" id="shellfish-checkbox" class="mdl-checkbox__input"/>
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="tree-checkbox">
+                                            <input type="checkbox" id="tree-checkbox" class="mdl-checkbox__input"/>
                                         </label>
                                     </span>
                                 </li>
@@ -272,7 +278,9 @@
                 dialog.close();
             });
         }
+
         function gatherIngredients() {
+            $( "li" ).remove( ":contains('Recipe')" );
             var ingredientsTags = document.getElementById("ingredientsList").getElementsByTagName("li");
             var ingredients = [];
 
@@ -280,28 +288,46 @@
                 ingredients.push(ingredientsTags[i].children[0].textContent);
             }
 
-            var restrictionsTags = document.getElementById("restrictionsList").getElementsByTagName("li");
-            console.log(restrictionsTags);
-
             console.log(ingredients);
             sendIngredients(ingredients);
         }
+
         function sendIngredients(ingredients) {
-            var queryString = "";
+            var params = {
+                app_id: "223b8c0e",
+                app_key: "d4b82fd96b209abba79648a260d84375", 
+                q: [],
+                health: []
+            };
+ 
             for (var i = ingredients.length - 1; i >= 0; i--) {
-                if(i != 0) {
-                    queryString += ingredients[i] + "+";
-                }
-                else {
-                    queryString += ingredients[i];
-                }
+                params.q.push(ingredients[i]);
             }
-            //console.log(queryString);
-            $.get('https://api.edamam.com/search', {app_id: '223b8c0e', app_key: "d4b82fd96b209abba79648a260d84375",  q: queryString}, function(data) {
+
+            getHealthParams(params);
+
+            $.get('https://api.edamam.com/search', $.param(params, true), function(data) {
+                console.log(data);
                 console.log(data.hits);
                 processRecipeData(data.hits);
-            })
+             });
         }
+
+        function getHealthParams(params) {
+            if(document.getElementById("vegan-checkbox").checked) {
+                params.health.push("vegan");
+            }
+            if(document.getElementById("peanut-checkbox").checked) {
+                params.health.push("peanut-free");
+            }
+            if(document.getElementById("tree-checkbox").checked) {
+                params.health.push("tree-nut-free");
+            }
+            if(document.getElementById("vegetarian-checkbox").checked) {
+                params.health.push("vegetarian");
+            }
+        }
+
         function processRecipeData(data) {
             for (var i = data.length - 1; i >= 0; i--) {
                 var recipe = {image: data[i].recipe.image, label: data[i].recipe.label, source: data[i].recipe.source, url: data[i].recipe.url};
@@ -317,7 +343,6 @@
                 list.appendChild(reUrl);
 
                 document.getElementById("recipeList").appendChild(list);
-                //renderRecipe(recipe);
             }
             renderRecipe();
         }
@@ -342,6 +367,9 @@
         function renderRecipe() {
             var dialog = document.getElementById("recipe-dialog");
             dialog.showModal();
+            document.getElementById("recipe-close").addEventListener("click", function() {
+                dialog.close();
+            });
         }
         function inputInit() {
             document.getElementById("ingredientInput")
