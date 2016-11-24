@@ -36,6 +36,7 @@
     box-sizing: border-box;
 }
 
+
 .portfolio-header {
   position: relative;
     background-color: #eee;
@@ -231,6 +232,13 @@ img.article-image {
 .portfolio-contact form {
   max-width: 550px;
   margin: auto;
+}
+
+.acount-info{
+    margin-top: 10px;
+    margin-right: 25px;
+    position: fixed;
+    right: 0px;
 }
 
 #recipe-dialog {
