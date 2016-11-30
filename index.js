@@ -215,6 +215,7 @@ function createReUrl(recipe) {
     var reUrlText = document.createTextNode("Recipe Link");
     reUrl.appendChild(reUrlText);
     reUrl.href = recipe.url;
+    reUrl.target = "_blank";
     return reUrl;
 }
 
