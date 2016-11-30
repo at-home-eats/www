@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.grey-pink.min.css" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dragula.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -80,24 +81,94 @@
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-grid portfolio-max-width">
-                <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
-                    <div class="mdl-grid mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp" id="1right">
-
+                <div class="mdl-grid mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <div class="mdl-cell mdl-cell--4-col mdl-shadow--4dp" id="1right">
+                        <h2 class="mdl-card__title-text">Friday</h2>
                     </div>
-					<div class="mdl-grid mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp" id="2right">
-
-					</div>
-					<div class="mdl-grid mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp" id="3right">
-
-					</div>
+					<div class="mdl-cell mdl-cell--4-col mdl-shadow--4dp" id="2right">
+                        <h2 class="mdl-card__title-text">Saturday</h2>
+                    </div>
+					<div class="mdl-cell mdl-cell--4-col mdl-shadow--4dp" id="3right">
+                        <h2 class="mdl-card__title-text">Sunday</h2>
+                    </div>
                 </div>
 				
-				<div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp" id="1left">
-                    <div class="recipes">Recipe1</div>
-					<div class="recipes">Recipe2</div>
-					<div class="recipes">Recipe3</div>
-					<div class="recipes">Recipe4</div>
-					<div class="recipes">Recipe5</div>
+				<div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp" id="left">
+                    <div class="recipes">
+						<div class="mdl-cell mdl-grid mdl-cell--12-col">
+							<div class="mdl-cell--4-col">
+								<img class="article-image" src=" images/pizza.jpg" border="0" alt="">
+							</div>
+							<div class="mdl-cell mdl-cell--6-col">
+								<h2 class="mdl-card__title-text">Pizza</h2>
+								<div class="mdl-card__supporting-text no-left-padding">
+									<p>Cal:1200
+									Prep Time:15</p>
+									<a href="http://www.google.com" target="_blank">site</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="recipes">
+						<div class="mdl-cell mdl-grid mdl-cell--12-col">
+							<div class="mdl-cell--4-col">
+								<img class="article-image" src=" images/shrimp.jpg" border="0" alt="">
+							</div>
+							<div class="mdl-cell mdl-cell--6-col">
+								<h2 class="mdl-card__title-text">Honey Walnut Shrimp</h2>
+								<div class="mdl-card__supporting-text no-left-padding">
+									<p>Cal:1200
+									Prep Time:15</p>
+									<a href="http://www.google.com" target="_blank">site</a>
+								</div>
+							</div>
+						</div>					
+					</div>
+					<div class="recipes">
+						<div class="mdl-cell mdl-grid mdl-cell--12-col">
+							<div class="mdl-cell--4-col">
+								<img class="article-image" src=" images/lasagna.jpg" border="0" alt="">
+							</div>
+							<div class="mdl-cell mdl-cell--6-col">
+								<h2 class="mdl-card__title-text">Lasagna</h2>
+								<div class="mdl-card__supporting-text no-left-padding">
+									<p>Cal:1200
+									Prep Time:15</p>
+									<a href="http://www.google.com" target="_blank">site</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="recipes">
+						<div class="mdl-cell mdl-grid mdl-cell--12-col">
+							<div class="mdl-cell--4-col">
+								<img class="article-image" src=" images/waffle.jpg" border="0" alt="">
+							</div>
+							<div class="mdl-cell mdl-cell--6-col">
+								<h2 class="mdl-card__title-text">Waffles</h2>
+								<div class="mdl-card__supporting-text no-left-padding">
+									<p>Cal:1200
+									Prep Time:15</p>
+									<a href="http://www.google.com" target="_blank">site</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="recipes">
+						<div class="mdl-cell mdl-grid mdl-cell--12-col">
+							<div class="mdl-cell--4-col">
+								<img class="article-image" src=" images/peach.jpg" border="0" alt="">
+							</div>
+							<div class="mdl-cell mdl-cell--6-col">
+								<h2 class="mdl-card__title-text">Peach Cobbler</h2>
+								<div class="mdl-card__supporting-text no-left-padding">
+									<p>Cal:1200
+									Prep Time:15</p>
+									<a href="http://www.google.com" target="_blank">site</a>
+								</div>
+							</div>
+						</div>
+					</div>
                 </div>
             </div>
             <footer class="mdl-mini-footer">
@@ -114,19 +185,43 @@
         </main>
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
     <script src="./index.js"></script>
-    <script type="text/javascript">
+    <script src="./dragula.js"></script>
+	<script type="text/javascript">
         window.onload = function (){
             renderUser();
-			dragula([document.getElementById('1left'), document.getElementById('1right')]);
-			dragula([document.getElementById('1left'), document.getElementById('2right')]);
-			dragula([document.getElementById('1left'), document.getElementById('3right')]);
-			dragula([document.getElementById('1right'), document.getElementById('2right')]);
-			dragula([document.getElementById('1right'), document.getElementById('3right')]);
-			dragula([document.getElementById('2right'), document.getElementById('3right')]);
+			var dragAndDrop = {    
+				init: function () {
+					this.dragula();
+					this.eventListeners();
+				},
+
+				eventListeners: function () {
+					this.dragula.on('drop', this.dropped.bind(this));
+				},
+
+				dragula: function () {
+					this.dragula = dragula([document.getElementById('left'), document.getElementById('1right'), document.getElementById('2right'), document.getElementById('3right')],
+					{
+						removeOnSpill: true,
+						copy: function (el, source) {
+							return source === document.getElementById('left')
+						},						
+						accepts: function (el, target) {
+							return target !== document.getElementById('left')
+						}
+					});
+				},	
+				
+				dropped: function (el) {
+				}
+
+			};
+			
+			dragAndDrop.init();
 		};
     </script>
+    
 </body>
 
 </html>
